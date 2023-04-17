@@ -9,11 +9,25 @@ c.fillRect(0, 0, canvas.width, canvas.height)
 
 const image = new Image()
 image.src = './assets/map.png'
-console.log(image)
+
+const playerImage = new Image()
+playerImage.src = './assets/playerDownOceanHair.png'
 
 image.onload = () => {
-  
+  c.drawImage(image, -785, -650)
+  c.drawImage(
+    playerImage,
+    0,
+    0,
+    playerImage.width / 4,
+    playerImage.height,
+    canvas.width / 2 - playerImage.width / 8,
+    canvas.height / 2 - playerImage.height / 2,
+    playerImage.width / 4,
+    playerImage.height
+   )
 }
+
 
 class Sprite {
   constructor({ position, velocity, image}) {
@@ -26,7 +40,7 @@ class Sprite {
 }
 
 const background = new Sprite({position: {
-  x: -785
+  x: -785,
   y: -650
 },
   image: image
@@ -50,9 +64,19 @@ const keys = {
 function animate() {
   window.requestAnimationFrame(animate)
   background.draw()
-  console.log('animate')
-
+  c.drawImage(
+    playerImage,
+    0,
+    0,
+    playerImage.width / 4,
+    playerImage.height,
+    canvas.width / 2 - playerImage.width / 8,
+    canvas.height / 2 - playerImage.height / 2,
+    playerImage.width / 4,
+    playerImage.height
+  )
   if (keys.w.pressed) background.position.y = background.position.y + 3
+  console.log(background.position.y)
 }
 animate()
 
@@ -93,3 +117,4 @@ window.addEventListener('keyup', (e) => {
   }
   console.log(keys)
 })
+
