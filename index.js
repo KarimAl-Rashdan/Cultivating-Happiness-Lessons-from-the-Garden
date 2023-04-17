@@ -9,10 +9,9 @@ c.fillRect(0, 0, canvas.width, canvas.height)
 
 const image = new Image()
 image.src = './assets/map.png'
-console.log(image)
 
 const playerImage = new Image()
-playerImage.src = './assets/playerDownHackathon.png'
+playerImage.src = './assets/playerDownOceanHair.png'
 
 image.onload = () => {
   c.drawImage(image, -785, -650)
